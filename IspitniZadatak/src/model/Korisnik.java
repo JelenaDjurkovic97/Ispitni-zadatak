@@ -25,7 +25,17 @@ public class Korisnik {
 		this.kartice = kartice;
 	}
 	
+	private int ukupnoZaradjenihPoena(List<Kartica > kartice) {
+		int suma = 0;
+		for(Kartica k:kartice){
+		suma +=	k.izracunajBrojPoena(k);
+		}
+		return suma;
+	}
 	
-	
+	public void ukupnoPoenaPreIsaZaradom(int ukupniPoeni, int ukupnoZaradjenihPoena) {
+		int ukupno = ukupniPoeni + ukupnoZaradjenihPoena;
+		System.out.println("Ukupno zaradjenih poena pre i posle ima: " + ukupno);
+	}
 	
 }

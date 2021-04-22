@@ -6,7 +6,7 @@ public class Kartica extends BasicCard implements IPoeni {
 
 	private double sipanoLitara;
 	private int tipKartice1;
-	private int tipKartice2;
+	
 	
 	public double getSipanoLitara() {
 		return sipanoLitara;
@@ -24,14 +24,6 @@ public class Kartica extends BasicCard implements IPoeni {
 		this.tipKartice1 = tipKartice1;
 	}
 
-	public int getTipKartice2() {
-		return tipKartice2;
-	}
-
-	public void setTipKartice2(int tipKartice2) {
-		this.tipKartice2 = tipKartice2;
-	}
-	
 	public Kartica() {
 		
 	}
@@ -39,7 +31,6 @@ public class Kartica extends BasicCard implements IPoeni {
 		super();
 		this.sipanoLitara = sipanoLitara;
 		this.tipKartice1 = tipKartice1;
-		this.tipKartice2 = tipKartice2;
 	}
 
 	
@@ -53,8 +44,16 @@ public class Kartica extends BasicCard implements IPoeni {
 
 	@Override
 	public int izracunajBrojPoena(Kartica kartica) {
+		int brojPoena = 0;
+		if(kartica.getTipKartice1() == 1) {
+			brojPoena = (int)kartica.getSipanoLitara()*2;
+		}else if(kartica.getTipKartice1() == 2) {
+			brojPoena = (int)kartica.getSipanoLitara()*3;
+		}else{
+			System.out.println("Ne postoji tip kartice");
+		}
 		
-		return 0;
+		return brojPoena;
 	}
 
 }
